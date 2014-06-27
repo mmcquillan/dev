@@ -12,8 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # get it updated and install some required stuff
   config.vm.provision :shell, :inline => "sudo apt-get update"
-  #config.vm.provision :shell, :inline => "sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' upgrade"
-  config.vm.provision :shell, :inline => "sudo apt-get install -y screen vim"
+  config.vm.provision :shell, :inline => "sudo apt-get install -y screen vim curl git"
 
   # a few customizations
   config.vm.provision :shell, :inline => "cp /vagrant/screenrc /home/vagrant/.screenrc"
