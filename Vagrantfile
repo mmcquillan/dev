@@ -9,6 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #### setup the vm
   config.vm.box = "ubuntu/trusty32"
   config.vm.hostname = "DevBox"
+  config.vm.synced_folder "..\\", "/home/vagrant/projects"
+  config.vm.network "forwarded_port", host: 8899, guest: 80
 
   #### standard
   config.vm.provision :shell, :inline => "sed 's/\r//' /vagrant/screenrc > /home/vagrant/.screenrc"
@@ -32,8 +34,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.provision :shell, :inline => "mysql -h localhost -u root -pvagrant -e 'CREATE DATABASE wordpress;'"
   # config.vm.provision :shell, :inline => "mysql -h localhost -u root -pvagrant -D wordpress < /vagrant/backup.sql"
   # config.vm.provision :shell, :inline => "mysql -h localhost -u root -pvagrant -e 'update wp_options set option_value = \'http://localhost:8888/\' where option_name = \'siteurl\';'"
-  # config.vm.provision :shell, :inline => "wget http://wordpress.org/latest.tar.gz"
-  # config.vm.provision :shell, :inline => "tar -xvf latest.tar.gz /vagrant/"
+  # config.vm.provision :shell, :inline => "wget -q http://wordpress.org/latest.tar.gz"
+  # config.vm.provision :shell, :inline => "tar -xvf latest.tar.gz -C /vagrant/"
   # config.vm.provision :shell, :inline => "rm latest.tar.gz"
   # config.vm.provision :shell, :inline => "cp /vagrant/wp-config-sample.php /vagrant/wp-config.php"
   # config.vm.provision :shell, :inline => "sed -i 's/database_name_here/wordpress/g' /vagrant/wp-config.php"
@@ -45,5 +47,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.provision :shell, :inline => "sudo usermod -a vagrant -G rvm"
   # config.vm.provision :shell, :inline => "rvm requirements"
   # config.vm.provision :shell, :inline => "rvm install 1.9.3-p286"
+
+  #### golang
+  # config.vm.provision :shell, :inline => "wget -q https://storage.googleapis.com/golang/go1.4.2.linux-386.tar.gz"
+  # config.vm.provision :shell, :inline => "sudo tar -C /usr/local -xzf go1.4.2.linux-386.tar.gz"
+  # config.vm.provision :shell, :inline => "sudo echo 'export PATH=$PATH:/usr/local/go/bin' > /etc/profile.d/go.sh"
 
 end
