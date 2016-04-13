@@ -26,9 +26,9 @@ echo "set expandtab" >> ~/.vimrc
 echo "set smarttab" >> ~/.vimrc
 echo "set shiftwidth=4" >> ~/.vimrc
 echo "set tabstop=4" >> ~/.vimrc
-echo "set ai "Auto indent" >> ~/.vimrc
-echo "set si "Smart indent" >> ~/.vimrc
-echo "set wrap "Wrap lines" >> ~/.vimrc
+echo "set ai \"Auto indent\"" >> ~/.vimrc
+echo "set si \"Smart indent\"" >> ~/.vimrc
+echo "set wrap \"Wrap lines\"" >> ~/.vimrc
 echo "set shell=/bin/bash" >> ~/.vimrc
 echo "call plug#begin('~/.vim/plugged')" >> ~/.vimrc
 echo "Plug 'fatih/vim-go'" >> ~/.vimrc
