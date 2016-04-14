@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt-get install -y git
+sudo apt-get install -y exuberant-ctags
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "set history=700" > ~/.vimrc
@@ -30,9 +32,13 @@ echo "set ai \"Auto indent\"" >> ~/.vimrc
 echo "set si \"Smart indent\"" >> ~/.vimrc
 echo "set wrap \"Wrap lines\"" >> ~/.vimrc
 echo "set shell=/bin/bash" >> ~/.vimrc
+echo "noremap <C-t> :TagbarToggle<CR>" >> ~/.vimrc
+echo "noremap <C-n> :NERDTreeToggle<CR>" >> ~/.vimrc
 echo "call plug#begin('~/.vim/plugged')" >> ~/.vimrc
 echo "Plug 'fatih/vim-go'" >> ~/.vimrc
 echo "Plug 'jiangmiao/auto-pairs'" >> ~/.vimrc
+echo "Plug 'scrooloose/nerdtree'" >> ~/.vimrc
+echo "Plug 'majutsushi/tagbar'" >> ~/.vimrc
 echo "call plug#end()" >> ~/.vimrc
 
 echo 'run vim and :PlugInstall'
